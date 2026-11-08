@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="nb">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Idéverksted</title>
+  <meta name="description" content="Få ideer til apper og Minecraft-modder du kan bygge i kodeklubben.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%2385b35f' d='M12 2 22 7.5 12 13 2 7.5z'/%3E%3Cpath fill='%23386b23' d='M2 7.5 12 13v9L2 16.5z'/%3E%3Cpath fill='%23214a12' d='M22 7.5 12 13v9l10-5.5z'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="/">
+      <svg class="mark" viewBox="0 0 24 24" aria-hidden="true">
+        <path fill="#85b35f" d="M12 2 22 7.5 12 13 2 7.5z"/>
+        <path fill="#386b23" d="M2 7.5 12 13v9L2 16.5z"/>
+        <path fill="#214a12" d="M22 7.5 12 13v9l10-5.5z"/>
+      </svg>
+      Idéverksted
+    </a>
+    <span class="scope">Kodeklubben</span>
+  </header>
+
+  <div class="workspace">
+    <form class="palette" id="idea-form">
+      <fieldset class="field">
+        <legend>Hva vil du lage?</legend>
+        <div class="segmented">
+          <label><input type="radio" name="kind" value="mod" checked><span>Minecraft-mod</span></label>
+          <label><input type="radio" name="kind" value="app"><span>App</span></label>
+        </div>
+      </fieldset>
+
+      <div class="field">
+        <label for="theme">Tema (valgfritt)</label>
+        <input class="input" id="theme" name="theme" maxlength="200" autocomplete="off" placeholder="For eksempel vulkaner">
+        <div class="suggestions" id="suggestions">
+          <button type="button" class="chip">Romfart</button>
+          <button type="button" class="chip">Dyr</button>
+          <button type="button" class="chip">Skolen</button>
+          <button type="button" class="chip">Mat</button>
+          <button type="button" class="chip">Musikk</button>
+          <button type="button" class="chip">Vikinger</button>
+        </div>
+      </div>
+
+      <fieldset class="field">
+        <legend>Hvor mye har du kodet?</legend>
+        <div class="levels">
+          <label class="level"><input type="radio" name="level" value="nybegynner" checked><span><b>Nybegynner</b><small>Aldri eller nesten aldri</small></span></label>
+          <label class="level"><input type="radio" name="level" value="litt"><span><b>Litt erfaren</b><small>Kan løkker og funksjoner</small></span></label>
+          <label class="level"><input type="radio" name="level" value="erfaren"><span><b>Erfaren</b><small>Har laget egne prosjekter</small></span></label>
+        </div>
+      </fieldset>
+
+      <div class="field">
+        <label for="provider">Språkmodell</label>
+        <select class="input" id="provider" name="provider" aria-describedby="provider-note"></select>
+        <p class="note" id="provider-note"></p>
+      </div>
+
+      <button class="btn primary" id="generate" type="submit">Lag 3 ideer</button>
+    </form>
+
+    <main class="canvas" id="canvas" tabindex="-1">
+      <div class="title-row">
+        <div>
+          <h1 id="title">Minecraft-modder</h1>
+          <p class="sub" id="subtitle">Slik ser ideene ut. Dine ideer kommer her.</p>
+        </div>
+      </div>
+      <p class="sr-only" id="status" role="status"></p>
+      <div class="ideas" id="ideas"></div>
+    </main>
+  </div>
+
+  <script src="/app.js"></script>
+</body>
+</html>

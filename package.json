@@ -1,0 +1,11 @@
+{
+  "name": "ideverksted",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Lager ideer til apper og Minecraft-modder med Gemini eller OpenAI",
+  "engines": { "node": ">=22.9" },
+  "scripts": {
+    "start": "node --env-file-if-exists=.env backend/server.mjs",
+    "test": "node --test"
+  }
+}
